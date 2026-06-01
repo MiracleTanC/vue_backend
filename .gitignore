@@ -1,0 +1,53 @@
+# ==============================
+# Java / SpringBoot 项目忽略
+# ==============================
+
+# 编译输出目录
+target/
+bin/
+build/
+out/
+
+# Maven 忽略
+.mvn/
+maven-wrapper.jar
+maven-wrapper.properties
+
+# Gradle 忽略
+.gradle/
+gradle/
+gradlew
+gradlew.bat
+
+# IDEA 开发工具
+.idea/
+*.iml
+*.iws
+*.ipr
+*.idea
+
+# Eclipse 开发工具
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# SpringBoot 日志
+logs/
+*.log
+*.tmp
+
+# 应用配置文件（敏感信息）
+application-dev.yml
+application-dev.properties
+application-prod.yml
+application-prod.properties
+.env
+.env.*
+!/.env.example
+
+# 系统文件
+.DS_Store
+Thumbs.db
