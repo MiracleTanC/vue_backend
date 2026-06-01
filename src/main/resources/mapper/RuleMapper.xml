@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.admin.mapper.RuleMapper">
+
+    <!-- 根据角色ID获取菜单列表 -->
+    <select id="selectMenusByRoleId" resultType="com.shop.admin.entity.Rule">
+        SELECT DISTINCT r.*
+        FROM sys_rule r
+        INNER JOIN sys_role_rule rr ON r.id = rr.rule_id
+        WHERE rr.role_id = #{roleId}
+          AND r.frontpath IS NOT NULL
+          AND r.status = 1
+          AND r.deleted = 0
+        ORDER BY r.order_num ASC
+    </select>
+
+    <!-- 根据角色ID获取权限标识列表 -->
+    <select id="selectRuleNamesByRoleId" resultType="java.lang.String">
+        SELECT DISTINCT r.`condition`
+        FROM sys_rule r
+        INNER JOIN sys_role_rule rr ON r.id = rr.rule_id
+        WHERE rr.role_id = #{roleId}
+          AND r.`condition` IS NOT NULL
+          AND r.status = 1
+          AND r.deleted = 0
+    </select>
+
+</mapper>
